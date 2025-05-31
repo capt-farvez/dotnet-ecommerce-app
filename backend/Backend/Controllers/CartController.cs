@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("api/carts")]
+    [Route("api/cart")]
     public class CartController : ControllerBase
     {
         private readonly AppDbContext _context;
