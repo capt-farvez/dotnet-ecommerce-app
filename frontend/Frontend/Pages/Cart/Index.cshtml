@@ -1,0 +1,22 @@
+@page
+@model Frontend.Pages.Cart.IndexModel
+
+<h2>Your Cart</h2>
+
+@if (Model.CartItems.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    @foreach (var item in Model.CartItems)
+    {
+        <div class="bg-white border p-4 rounded shadow">
+            <p> Product Name: @item.ProductName</p>
+            <p> Product Quantity: @item.Quantity</p>
+            <p> Product Price: @item.Price</p>
+        </div>
+    }
+}
+
+            
