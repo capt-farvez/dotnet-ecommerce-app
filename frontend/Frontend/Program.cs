@@ -1,24 +1,26 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services here BEFORE building app
 builder.Services.AddRazorPages();
+
+// Add HttpClient with base address
+builder.Services.AddHttpClient("ApiClient", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5109"); // Your API base URL
+});
+
+// ... add other services here ...
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure middleware, endpoints etc
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
-app.UseAuthorization();
 
 app.MapRazorPages();
 
