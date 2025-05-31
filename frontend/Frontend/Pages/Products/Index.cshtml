@@ -41,11 +41,13 @@
                     <span class="font-bold">@($"{product.Price:C}")</span>
                 }
             </p>
-            <form method="post" asp-page-handler="AddToCart">
+            <form method="post" asp-page="/Cart/Index" asp-page-handler="AddToCart">
                 <input type="hidden" name="productId" value="@product.Id" />
-                <input type="number" name="quantity" value="1" min="1" class="border rounded px-2 py-1 w-16" />
-                <button type="submit" class="ml-2 bg-blue-500 text-white px-3 py-1 rounded">Add to Cart</button>
+                <input type="number" name="quantity" value="1" min="1" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
             </form>
+
+
         </div>
     }
 </div>
